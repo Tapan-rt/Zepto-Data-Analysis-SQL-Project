@@ -1,6 +1,6 @@
 # Zepto-Data-Analysis-SQL-Project
  Zepto E-commerce SQL Data Analyst Portfolio Project This is a complete, real-world data analyst portfolio project based on an e-commerce inventory dataset scraped from Zepto — one of India’s fastest-growing quick-commerce startups. This project simulates real analyst workflows, from raw data exploration to business-focused data analysis.
-📌 Project Overview
+# 📌 Project Overview
 The goal is to simulate how actual data analysts in the e-commerce or retail industries work behind the scenes to use SQL to:
 
 ✅ Set up a messy, real-world e-commerce inventory database
@@ -11,37 +11,48 @@ The goal is to simulate how actual data analysts in the e-commerce or retail ind
 
 ✅ Write business-driven SQL queries to derive insights around pricing, inventory, stock availability, revenue and more
 
-📁 Dataset Overview
+# 📁 Dataset Overview
 The dataset was sourced from Kaggle and was originally scraped from Zepto’s official product listings. It mimics what you’d typically encounter in a real-world e-commerce inventory system.
 
 Each row represents a unique SKU (Stock Keeping Unit) for a product. Duplicate product names exist because the same product may appear multiple times in different package sizes, weights, discounts, or categories to improve visibility – exactly how real catalog data looks.
 
-🧾 Columns:
+# 🧾 Columns:
 
-sku_id: Unique identifier for each product entry (Synthetic Primary Key)
 
-name: Product name as it appears on the app
+# sku_id: 
+Unique identifier for each product entry (Synthetic Primary Key)
 
-category: Product category like Fruits, Snacks, Beverages, etc.
+# name: 
+Product name as it appears on the app
 
-mrp: Maximum Retail Price (originally in paise, converted to ₹)
+# category: 
+Product category like Fruits, Snacks, Beverages, etc.
 
-discountPercent: Discount applied on MRP
+# mrp: 
+Maximum Retail Price (originally in paise, converted to ₹)
 
-discountedSellingPrice: Final price after discount (also converted to ₹)
+# discountPercent: 
+Discount applied on MRP
 
-availableQuantity: Units available in inventory
+# discountedSellingPrice: 
+Final price after discount (also converted to ₹)
 
-weightInGms: Product weight in grams
+# availableQuantity: 
+Units available in inventory
 
-outOfStock: Boolean flag indicating stock availability
+# weightInGms: 
+Product weight in grams
 
-quantity: Number of units per package (mixed with grams for loose produce)
+# outOfStock: 
+Boolean flag indicating stock availability
 
-🔧 Project Workflow
+# quantity: 
+Number of units per package (mixed with grams for loose produce)
+
+# 🔧 Project Workflow
 Here’s a step-by-step breakdown of what we do in this project:
 
-1. Database & Table Creation
+# 1. Database & Table Creation
 We start by creating a SQL table with appropriate data types:
 
 CREATE TABLE zepto (
@@ -56,16 +67,18 @@ CREATE TABLE zepto (
   outOfStock BOOLEAN,
   quantity INTEGER
 );
-2. Data Import
+
+# 2. Data Import
 Loaded CSV using pgAdmin's import feature.
 
 If you're not able to use the import feature, write this code instead:
 
-   \copy zepto(category,name,mrp,discountPercent,availableQuantity,
+   \ zepto(category,name,mrp,discountPercent,availableQuantity,
             discountedSellingPrice,weightInGms,outOfStock,quantity)
   FROM 'data/zepto_v2.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', QUOTE '"', ENCODING 'UTF8');
 Faced encoding issues (UTF-8 error), which were fixed by saving the CSV file using CSV UTF-8 format.
-3. 🔍 Data Exploration
+
+# 3. 🔍 Data Exploration
 Counted the total number of records in the dataset
 
 Viewed a sample of the dataset to understand structure and content
@@ -78,12 +91,12 @@ Compared in-stock vs out-of-stock product counts
 
 Detected products present multiple times, representing different SKUs
 
-4. 🧹 Data Cleaning
+# 4. 🧹 Data Cleaning
 Identified and removed rows where MRP or discounted selling price was zero
 
 Converted mrp and discountedSellingPrice from paise to rupees for consistency and readability
 
-5. 📊 Business Insights
+# 5. 📊 Business Insights
 Found top 10 best-value products based on discount percentage
 
 Identified high-MRP products that are currently out of stock
@@ -100,10 +113,10 @@ Grouped products based on weight into Low, Medium, and Bulk categories
 
 Measured total inventory weight per product category
 
-🛠️ How to Use This Project
+# 🛠️ How to Use This Project
 Clone the repository
 
-git clone https://github.com/amlanmohanty/zepto-SQL-data-analysis-project.git
+git clone [https://github.com/Tapan-rt/Zepto-Data-Analysis-SQL-Project.git]
 cd zepto-SQL-data-analysis-project
 Open zepto_SQL_data_analysis.sql
 
@@ -123,11 +136,10 @@ Create a database and run the SQL file
 
 Import the dataset (convert to UTF-8 if necessary)
 
-Follow along with the YouTube video for full walkthrough. 👨‍💼
-
-📜 License
+# 📜 License
 MIT — feel free to fork, star, and use in your portfolio.
 
-👨‍💻 About the Author
+# 👨‍💻 About the Author
 Tapan Tiwari
 [tapan.r.tiwari@gmail.com]
+
